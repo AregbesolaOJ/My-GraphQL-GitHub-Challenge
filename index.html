@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Github Challenge!</title>
+    <link rel="stylesheet" href="./css/reset.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="./css/styles.css">
+    <link rel="stylesheet" href="./css/helper.css">
+</head>
+<body>
+    <section class="navbar">
+        <div class="navbar-group">
+            <div id="hamburger" class="hamburger">
+                <i class="fa fa-bars"></i>
+            </div>            
+            <div class="">
+                <i class="fa fa-github fa-2x"></i>
+            </div>            
+            <div class="">
+                <i class="fa fa-bell-o"></i>
+            </div>
+        </div>
+            
+        <div id="mobileMenu" class="mobileMenu hide">
+            <div class="search-bar">
+                <input type="text" name="search" placeholder="Search or jump to..." id="search"/>
+                <div class="trigger">
+                    <p>/</p>
+                </div>
+            </div>
+            <ul class="menu-group">
+                <li class="menu-item">Dashboard</li>
+                <li class="menu-item">Pull Requests</li>
+                <li class="menu-item">Issues</li>
+                <li class="menu-item">Trending</li>
+                <li class="menu-item">Explore</li>
+                <li class="menu-item">Codespaces</li>
+                <li class="menu-item">Sponsors</li>
+                <li class="menu-item">Settings</li>
+                <li class="menu-item avatar">
+                    <div class="profile-avatar" id="profileAvatar" style="height: 30px; width: 30px; margin-right: 7.5px;">
+                    </div>
+                    <p id="userLogin"></p>
+                </li>
+                <li class="menu-item">
+                    <i class="fa fa-sign-out" style="margin-right: 5px;"></i>
+                    Sign Out
+                </li>
+            </ul>
+        </div>
+    </section>
+    <section class="error-page">
+        <p>Error 404 Page! Please check your internet</p>
+    </section>
+    <section class="wrapper">
+        <section class="description container">
+            <div class="profile">
+                <div class="profile-avatar" id="profileAvatar">
+                </div>
+                <div class="profile-details">
+                    <h4 id="userName"></h4>
+                    <p id="userLogin"></p>
+                </div>
+            </div>
+            <div class="status">
+                <div class="search-bar" style="border-color: #d1d5da;">
+                    <p style="margin-right: 10px;">😊</p>
+                    <input type="text" name="search" placeholder="Set status" id="search"/>
+                </div>
+                
+                <p class="status-text" id="statusText">Learner / Frontend / DevOps / Foodie</p>
+                <button class="btn">
+                    Edit Profile
+                </button>
+                <div class="status-mail">
+                    <i class="fa fa-envelope-o" style="margin-right: 5px;"></i>
+                    <span id="userEmail">
+                        
+                    </span>
+                </div>
+                <div class="status-metadata">
+                    <div class="item">
+                        <svg style="fill: #586069;" height="16" viewBox="0 0 16 16" version="1.1" width="16" aria-hidden="true"><path fill-rule="evenodd" d="M5.5 3.5a2 2 0 100 4 2 2 0 000-4zM2 5.5a3.5 3.5 0 115.898 2.549 5.507 5.507 0 013.034 4.084.75.75 0 11-1.482.235 4.001 4.001 0 00-7.9 0 .75.75 0 01-1.482-.236A5.507 5.507 0 013.102 8.05 3.49 3.49 0 012 5.5zM11 4a.75.75 0 100 1.5 1.5 1.5 0 01.666 2.844.75.75 0 00-.416.672v.352a.75.75 0 00.574.73c1.2.289 2.162 1.2 2.522 2.372a.75.75 0 101.434-.44 5.01 5.01 0 00-2.56-3.012A3 3 0 0011 4z"></path></svg>
+                        
+                        <span class="count" id="followers"></span>
+                        <p class="sub"> followers </p>
+                    </div>
+                    <div class="item">
+                        ・
+                        <span class="count" id="following"></span>
+                        <p class="sub"> following </p>
+                    </div>
+                    <div class="item">
+                        ・                
+                        <i class="fa fa-star-o"></i>
+                        <span class="count" id="userStars">13</span>
+                    </div>
+                </div>
+            </div>
+            <div class="achievements">
+                <h4 class="heading">Achievements</h4>
+                <div class="plaque" id="profileAvatar">
+                </div>
+            </div>
+        </section>
+        <section class="option-tabs">
+            <div class="tab">
+                <h4 class="tab-title">Repositories</h4>
+                <div class="tab-count">
+                    <p id="repositoryCount">0</p>
+                </div>
+            </div>
+        </section>
+        <section class="tab-details container" id="tab-details">
+        </section>
+    </section>
+    <section class="footer container">
+        <ul class="footer-list">
+            <li class="footer-item"><a href="#">Terms</a></li>
+            <li class="footer-item"><a href="#">Privacy</a></li>
+            <li class="footer-item"><a href="#">Security</a></li>
+            <li class="footer-item"><a href="#">Status</a></li>
+            <li class="footer-item"><a href="#">Docs</a></li>
+        </ul>
+        <ul class="footer-list">
+            <li class="footer-item"><a href="#">Contact Github</a></li>
+            <li class="footer-item"><a href="#">Pricing</a></li>
+            <li class="footer-item"><a href="#">API</a></li>
+            <li class="footer-item"><a href="#">Training</a></li>
+            <li class="footer-item"><a href="#">Blog</a></li>
+            <li class="footer-item"><a href="#">About</a></li>
+        </ul>
+    </section>
+
+
+    <script type="text/javascript">
+        let userLogins = document.querySelectorAll("#userLogin");
+        let profileAvatars = document.querySelectorAll("#profileAvatar");
+
+        let errorPage = document.querySelector(".error-page");
+        let wrapper = document.querySelector(".wrapper");
+
+        let mobileMenu = document.getElementById("mobileMenu");
+        let menuNavigation = document.getElementById('hamburger');
+        let closeNavigation = document.getElementById("close");
+        let repositoryCount = document.getElementById("repositoryCount");
+        let statusText = document.getElementById("statusText");
+        let userName = document.getElementById("userName");
+        let userEmail = document.getElementById("userEmail");
+        let userStars = document.getElementById("userStars");
+        let followersCount = document.getElementById("followers");
+        let followingCount = document.getElementById("following");
+
+        menuNavigation.addEventListener('click', () => {
+            if (mobileMenu.classList.contains('hide')) {
+                mobileMenu.classList.remove('hide');
+                return
+            }
+            mobileMenu.classList.add('hide');
+        });
+        
+        const handleError = () => {
+            wrapper.style.display = 'none'
+            errorPage.style.display = 'flex'
+        }
+
+        const handleData = ({ data }) => {
+            if (data === undefined) {
+                handleError();
+                return
+            }
+            const { viewer: { repositories, ...rest } } = data
+            const { name, company, bio, avatarUrl, email, followers, following, login } = rest
+
+            const list = repositories && repositories.edges ? repositories.edges.map(edge => ({ ...edge.node })) : []
+            repositoryCount.textContent = list.length;
+            
+            userName.textContent = name;
+            userLogins.forEach(userLogin => (
+                userLogin.textContent = login
+            ));
+            userEmail.textContent = email;
+            statusText.textContent = bio;
+            followersCount.textContent = followers?.totalCount || 0
+            followingCount.textContent = following?.totalCount || 0;
+            console.log({ rest, list });            
+
+            const avatarFn = (url, alt) => `<img src="${url}" alt="${alt}" />`;
+
+            const templateFn = (data) => {
+                const {
+                    description,
+                    forks,
+                    id,
+                    issues,
+                    name,
+                    nameWithOwner,
+                    primaryLanguage,
+                    pullRequests,
+                    updatedAt,
+                    url,
+                    viewerHasStarred,
+                } = data
+                
+                const formatDate = date => {
+                    const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sept', 'Oct', 'Nov', 'Dec']
+                    let _date = new Date(date);
+                    let month = _date.getMonth();
+                    let day = _date.getDate();
+                    let year = _date.getFullYear();
+
+                    return [day, months[month], year].join(' ');
+                }
+                
+                return `
+                    <div class="repository">
+                        <h4 class="repository-heading" title="${nameWithOwner}">
+                            <a href="${url}" target="_blank">${name || 'Not found'}</a>
+                        </h4>
+                        <div class="repository-data">
+                            <div class="info">
+                                <p class="info-slug">
+                                    ${description || 'No description found'}
+                                </p>
+                                <div class="infomatics">
+                                    <div class="flex-center mr-3">
+                                        <div class="language-marker" style="background-color: ${primaryLanguage?.color}"></div>
+                                        <p id="language" class="language">${primaryLanguage?.name || 'Unspecified'}</p>
+                                    </div>
+                                    ${forks && forks.totalCount > 0 ? (
+                                        `<div class="flex-center mr-3">
+                                            <svg aria-label="fork" style="fill: #586069;" viewBox="0 0 16 16" version="1.1" width="16" height="16" role="img"><path fill-rule="evenodd" d="M5 3.25a.75.75 0 11-1.5 0 .75.75 0 011.5 0zm0 2.122a2.25 2.25 0 10-1.5 0v.878A2.25 2.25 0 005.75 8.5h1.5v2.128a2.251 2.251 0 101.5 0V8.5h1.5a2.25 2.25 0 002.25-2.25v-.878a2.25 2.25 0 10-1.5 0v.878a.75.75 0 01-.75.75h-4.5A.75.75 0 015 6.25v-.878zm3.75 7.378a.75.75 0 11-1.5 0 .75.75 0 011.5 0zm3-8.75a.75.75 0 100-1.5.75.75 0 000 1.5z"></path></svg>
+                                            <p id="language" class="language">${forks.totalCount}</p>
+                                        </div>`
+                                    ) : ''}
+                                    <svg aria-hidden="true" role="img" class="mr-3" viewBox="0 0 16 16" width="16" height="16" fill="currentColor" style="display: inline-block; user-select: none; vertical-align: text-bottom;"><path fill-rule="evenodd" d="M8 1.5a6.5 6.5 0 100 13 6.5 6.5 0 000-13zM0 8a8 8 0 1116 0A8 8 0 010 8zm9 3a1 1 0 11-2 0 1 1 0 012 0zm-.25-6.25a.75.75 0 00-1.5 0v3.5a.75.75 0 001.5 0v-3.5z"></path></svg>
+                                    <svg aria-hidden="true" role="img" class="mr-3" viewBox="0 0 16 16" width="16" height="16" fill="currentColor" style="display: inline-block; user-select: none; vertical-align: text-bottom;"><path fill-rule="evenodd" d="M7.177 3.073L9.573.677A.25.25 0 0110 .854v4.792a.25.25 0 01-.427.177L7.177 3.427a.25.25 0 010-.354zM3.75 2.5a.75.75 0 100 1.5.75.75 0 000-1.5zm-2.25.75a2.25 2.25 0 113 2.122v5.256a2.251 2.251 0 11-1.5 0V5.372A2.25 2.25 0 011.5 3.25zM11 2.5h-1V4h1a1 1 0 011 1v5.628a2.251 2.251 0 101.5 0V5A2.5 2.5 0 0011 2.5zm1 10.25a.75.75 0 111.5 0 .75.75 0 01-1.5 0zM3.75 12a.75.75 0 100 1.5.75.75 0 000-1.5z"></path></svg>
+                                    <p class="mr-3">Updated on ${formatDate(updatedAt)}</p>
+                                </div>
+                            </div>
+                            <div class="metrics">
+                                <button class="btn flex-center">
+                                    <i class="fa ${viewerHasStarred ? `fa-star` : `fa-star-o`} mr-1"></i>
+                                    <p>Star</p>
+                                </button>
+                                <div class="graph">
+                                    <i class="fa fa-line-chart"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `
+            }
+
+            const repositoryCard = document.getElementById('tab-details');
+            list.map((listItem) => {
+                repositoryCard.insertAdjacentHTML(
+                    'beforeend',
+                    templateFn(listItem)
+                );
+            });        
+            profileAvatars.forEach((profileAvatar) => {
+                profileAvatar.insertAdjacentHTML(
+                    'beforeend',
+                    avatarFn(avatarUrl, login)
+                );
+            });
+            wrapper.style.display = 'block'
+            errorPage.style.display = 'none'
+
+        };
+
+
+
+        (async function () {
+            const options = {
+                method: "post",
+                headers: {
+                "Content-Type": "application/json",
+                "Authorization": "bearer token"
+                },
+                body: JSON.stringify({
+                  query: `{
+                    viewer {
+                        login
+                        avatarUrl
+                        bio
+                        following {
+                          totalCount
+                        }
+                        followers {
+                          totalCount
+                        }
+                        isGitHubStar
+                        anyPinnableItems
+                        isDeveloperProgramMember
+                        email
+                        company
+                        name
+                        twitterUsername
+                        repositories(first: 20) {
+                          edges {
+                            node {
+                                id
+                                name
+                                nameWithOwner
+                                description
+                                primaryLanguage {
+                                    color 
+                                    id
+                                    name
+                                }
+                                forks {
+                                    totalCount
+                                }
+                                updatedAt
+                                pullRequests {
+                                  totalCount
+                                }
+                                issues {
+                                    totalCount
+                                }
+                                url
+                            }
+                          }
+                        }
+                    }
+                  }`
+                })
+            };
+
+            fetch(`https://api.github.com/graphql`, options)
+                .then(res => res.json())
+                .then(data => handleData(data))
+        })();
+    </script>
+</body>
+</html>

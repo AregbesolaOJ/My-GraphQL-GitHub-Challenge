@@ -1,0 +1,20 @@
+.mr-1 {
+    margin-right: 5px;
+}
+.mr-3 {
+    margin-right: 15px;
+}
+
+.flex-center {
+    display: flex;
+    align-items: center;
+}
+
+.language-marker {
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background-color: firebrick;
+    border: 1px solid var(--color-section-border);
+    margin-right: 5px;
+}
