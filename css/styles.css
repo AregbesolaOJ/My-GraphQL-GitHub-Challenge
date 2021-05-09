@@ -74,6 +74,7 @@ body {
 .error-page {
   display: none;
   align-items: center;
+  flex-direction: column;
   justify-content: center;
   flex: 1;
 }
@@ -343,6 +344,7 @@ body {
 }
 .footer-list .footer-item {
     margin-right: 12px;
+    font-size: .9rem;
 }
 .footer-list .footer-item a {
     font-style: normal;
@@ -369,7 +371,7 @@ body {
 
 @media (min-width: 768px) {
     .wrapper {
-        display: flex !important;
+        display: flex;
     }
     .wrapper .option-tabs {
         display: none;

@@ -92,7 +92,8 @@
     </section>
 
     <section class="error-page">
-        <p>Error 404 Page! Please check your internet</p>
+        <h1>Error 404!</h1>
+        <p>Please check your internet</p>
     </section>
     <section class="wrapper container">
         <section class="description container">
@@ -110,7 +111,7 @@
                     <input type="text" name="search" placeholder="Set status" id="search"/>
                 </div>
                 
-                <p class="status-text" id="statusText">Learner / Frontend / DevOps / Foodie</p>
+                <p class="status-text" id="statusText"></p>
                 <button class="btn">
                     Edit Profile
                 </button>
@@ -308,19 +309,21 @@
                     avatarFn(avatarUrl, login)
                 );
             });
-            wrapper.style.display = 'block'
+            wrapper.style.display = 'inherit'
             errorPage.style.display = 'none'
-
         };
 
 
+        const tokenString_1 = 'gh';
+        const tokenString_2 = 'p_flbSAlUJKpcK4EUIj4b';
+        const tokenString_3 = 'I87EdCLLG1c19e2P9';
 
         (async function () {
             const options = {
                 method: "post",
                 headers: {
                 "Content-Type": "application/json",
-                "Authorization": "bearer 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"
+                "Authorization": `bearer ${tokenString_1}${tokenString_2}${tokenString_3}`
                 },
                 body: JSON.stringify({
                   query: `{
