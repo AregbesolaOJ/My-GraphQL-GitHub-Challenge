@@ -122,6 +122,10 @@ body {
     color: var(--color-white);    
 }
 
+.search-bar.alt input {
+    color: var(--color-black) ;
+}
+
 .search-bar input:focus,
 .search-bar input:active {
     outline: none;
