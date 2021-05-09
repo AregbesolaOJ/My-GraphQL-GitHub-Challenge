@@ -10,6 +10,10 @@
     align-items: center;
 }
 
+.cursor-pointer {
+    cursor: pointer !important;
+}
+
 .language-marker {
     width: 15px;
     height: 15px;

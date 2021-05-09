@@ -16,11 +16,38 @@
             <div id="hamburger" class="hamburger">
                 <i class="fa fa-bars"></i>
             </div>            
-            <div class="">
+            <div class="logo">
                 <i class="fa fa-github fa-2x"></i>
-            </div>            
-            <div class="">
+            </div>        
+            <div class="search-bar mobile">
+                <input type="text" name="search" placeholder="Search or jump to..." id="search"/>
+                <div class="trigger">
+                    <p>/</p>
+                </div>
+            </div>
+                
+            <ul class="menu-group mobile">
+                <li class="menu-item">Pull Requests</li>
+                <li class="menu-item">Issues</li>
+                <li class="menu-item">Codespaces</li>
+                <!-- <li class="menu-item">Marketplace</li> -->
+                <li class="menu-item">Explore</li>
+            </ul>
+            
+            <div class="notification">
                 <i class="fa fa-bell-o"></i>
+            </div>
+            <div class="profile-stubs">
+                <i class="fa fa-bell-o cursor-pointer"></i>
+                <div>
+                    <i class="fa fa-plus"></i>
+                    <i class="fa fa-caret-down cursor-pointer"></i>
+                </div>
+                <div class="flex-center">
+                    <div class="profile-avatar" id="profileAvatar" style="height: 20px; width: 20px; margin-right: 7.5px;">
+                    </div>                    
+                    <i class="fa fa-caret-down cursor-pointer"></i>
+                </div>
             </div>
         </div>
             
@@ -52,10 +79,22 @@
             </ul>
         </div>
     </section>
+    <section class="option-tabs main">
+        <div class="main-inner container">
+            <div class="tab">
+                <h4 class="tab-title">Repositories</h4>
+                <div class="tab-count">
+                    <p id="repositoryCount">0</p>
+                </div>
+            </div>
+            
+        </div>
+    </section>
+
     <section class="error-page">
         <p>Error 404 Page! Please check your internet</p>
     </section>
-    <section class="wrapper">
+    <section class="wrapper container">
         <section class="description container">
             <div class="profile">
                 <div class="profile-avatar" id="profileAvatar">
@@ -67,7 +106,7 @@
             </div>
             <div class="status">
                 <div class="search-bar" style="border-color: #d1d5da;">
-                    <p style="margin-right: 10px;">😊</p>
+                    <svg style="margin-right: 10px; fill: #586069" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M1.5 8a6.5 6.5 0 1113 0 6.5 6.5 0 01-13 0zM8 0a8 8 0 100 16A8 8 0 008 0zM5 8a1 1 0 100-2 1 1 0 000 2zm7-1a1 1 0 11-2 0 1 1 0 012 0zM5.32 9.636a.75.75 0 011.038.175l.007.009c.103.118.22.222.35.31.264.178.683.37 1.285.37.602 0 1.02-.192 1.285-.371.13-.088.247-.192.35-.31l.007-.008a.75.75 0 111.222.87l-.614-.431c.614.43.614.431.613.431v.001l-.001.002-.002.003-.005.007-.014.019a1.984 1.984 0 01-.184.213c-.16.166-.338.316-.53.445-.63.418-1.37.638-2.127.629-.946 0-1.652-.308-2.126-.63a3.32 3.32 0 01-.715-.657l-.014-.02-.005-.006-.002-.003v-.002h-.001l.613-.432-.614.43a.75.75 0 01.183-1.044h.001z"></path></svg>                    
                     <input type="text" name="search" placeholder="Set status" id="search"/>
                 </div>
                 
@@ -99,10 +138,10 @@
                         <span class="count" id="userStars">13</span>
                     </div>
                 </div>
-            </div>
-            <div class="achievements">
-                <h4 class="heading">Achievements</h4>
-                <div class="plaque" id="profileAvatar">
+                <div class="status-company">
+                    <i class="fa fa-building-o" style="margin-right: 5px;"></i>
+                    <span id="userCompany">
+                    </span>
                 </div>
             </div>
         </section>
@@ -117,7 +156,7 @@
         <section class="tab-details container" id="tab-details">
         </section>
     </section>
-    <section class="footer container">
+    <section class="footer">
         <ul class="footer-list">
             <li class="footer-item"><a href="#">Terms</a></li>
             <li class="footer-item"><a href="#">Privacy</a></li>
@@ -125,6 +164,9 @@
             <li class="footer-item"><a href="#">Status</a></li>
             <li class="footer-item"><a href="#">Docs</a></li>
         </ul>
+        <div class="footer-logo">
+            <i class="fa fa-github fa-2x"></i>
+        </div>
         <ul class="footer-list">
             <li class="footer-item"><a href="#">Contact Github</a></li>
             <li class="footer-item"><a href="#">Pricing</a></li>
@@ -150,6 +192,7 @@
         let statusText = document.getElementById("statusText");
         let userName = document.getElementById("userName");
         let userEmail = document.getElementById("userEmail");
+        let userCompany = document.getElementById("userCompany");
         let userStars = document.getElementById("userStars");
         let followersCount = document.getElementById("followers");
         let followingCount = document.getElementById("following");
@@ -183,10 +226,10 @@
                 userLogin.textContent = login
             ));
             userEmail.textContent = email;
+            userCompany.textContent = company;
             statusText.textContent = bio;
             followersCount.textContent = followers?.totalCount || 0
             followingCount.textContent = following?.totalCount || 0;
-            console.log({ rest, list });            
 
             const avatarFn = (url, alt) => `<img src="${url}" alt="${alt}" />`;
 
@@ -246,9 +289,6 @@
                                     <i class="fa ${viewerHasStarred ? `fa-star` : `fa-star-o`} mr-1"></i>
                                     <p>Star</p>
                                 </button>
-                                <div class="graph">
-                                    <i class="fa fa-line-chart"></i>
-                                </div>
                             </div>
                         </div>
                     </div>
@@ -280,7 +320,7 @@
                 method: "post",
                 headers: {
                 "Content-Type": "application/json",
-                "Authorization": "bearer token"
+                "Authorization": "bearer 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"
                 },
                 body: JSON.stringify({
                   query: `{
@@ -339,3 +379,4 @@
     </script>
 </body>
 </html>
+
