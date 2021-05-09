@@ -155,6 +155,14 @@
             </div>
         </section>
         <section class="tab-details container" id="tab-details">
+            <div class="tab-details__search">
+                <div class="search-bar" style="border-color: #d1d5da;">
+                    <input type="text" name="search" placeholder="Find a repository..." id="search"/>
+                </div>
+            </div>
+            <div class="tab-details__results">
+                <h2 id="publicRepoCount"></h2>
+            </div>        
         </section>
     </section>
     <section class="footer">
@@ -195,6 +203,7 @@
         let userEmail = document.getElementById("userEmail");
         let userCompany = document.getElementById("userCompany");
         let userStars = document.getElementById("userStars");
+        let publicRepoCount = document.getElementById("publicRepoCount");
         let followersCount = document.getElementById("followers");
         let followingCount = document.getElementById("following");
 
@@ -216,11 +225,12 @@
                 handleError();
                 return
             }
-            const { viewer: { repositories, ...rest } } = data
+            const { viewer: { repositories, ...rest }, user: { repositories: { totalCount: publicRepo }} } = data
+            console.log({ rest, publicRepo });
             const { name, company, bio, avatarUrl, email, followers, following, login } = rest
 
             const list = repositories && repositories.edges ? repositories.edges.map(edge => ({ ...edge.node })) : []
-            repositoryCount.textContent = list.length;
+            repositoryCount.textContent = publicRepo;
             
             userName.textContent = name;
             userLogins.forEach(userLogin => (
@@ -309,7 +319,17 @@
                     avatarFn(avatarUrl, login)
                 );
             });
-            wrapper.style.display = 'inherit'
+            publicRepoCount.insertAdjacentHTML(
+                'beforeend',
+                `<span class="bold">20</span> results for <span class="bold">public</span> repositories`
+            );
+            window.matchMedia('min-width: 768px').addListener(e => {
+                if (e.matches) {
+                    wrapper.style.display = 'flex';
+                    return        
+                }
+                wrapper.style.display = 'block';
+            })
             errorPage.style.display = 'none'
         };
 
@@ -369,6 +389,11 @@
                                 url
                             }
                           }
+                        }
+                    }
+                    user(login: "aregbesolaoj") {
+                        repositories {
+                        totalCount
                         }
                     }
                   }`
