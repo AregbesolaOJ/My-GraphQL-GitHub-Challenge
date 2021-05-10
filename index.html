@@ -190,6 +190,7 @@
     <script type="text/javascript">
         let userLogins = document.querySelectorAll("#userLogin");
         let profileAvatars = document.querySelectorAll("#profileAvatar");
+        let repositoryCounts = document.querySelectorAll("#repositoryCount");
 
         let errorPage = document.querySelector(".error-page");
         let wrapper = document.querySelector(".wrapper");
@@ -197,7 +198,6 @@
         let mobileMenu = document.getElementById("mobileMenu");
         let menuNavigation = document.getElementById('hamburger');
         let closeNavigation = document.getElementById("close");
-        let repositoryCount = document.getElementById("repositoryCount");
         let statusText = document.getElementById("statusText");
         let userName = document.getElementById("userName");
         let userEmail = document.getElementById("userEmail");
@@ -229,8 +229,9 @@
             const { name, company, bio, avatarUrl, email, followers, following, login } = rest
 
             const list = repositories && repositories.edges ? repositories.edges.map(edge => ({ ...edge.node })) : []
-            repositoryCount.textContent = publicRepo;
-            
+            repositoryCounts.forEach(repositoryCount => {
+                repositoryCount.textContent = publicRepo;
+            })
             userName.textContent = name;
             userLogins.forEach(userLogin => (
                 userLogin.textContent = login
